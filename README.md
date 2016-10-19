@@ -1,3 +1,3 @@
-# Nepremicnine
+# Nepremičnine
 
-To je moj drugi projekt
+Ta repozitorij vsebuje projekt pri Programiranju 1.
