@@ -7,14 +7,14 @@ Ta repozitorij vsebuje projekt pri Programiranju 1. Pri projektu bom analizirala
 Podatki so zajeti iz  https://www.nepremicnine.net/
 
 Za vsako nepremičnino sem zajela naslednje podatke:
-  *id
-  *ime nepremičnine
-  *predel v katerem se nahaja
-  *ceno nepremičnine
-  *leto izgradnje
-  *nadstropje
-  *tip nepremičnine
-  *velikost
+     - id
+     - ime nepremičnine
+     - predel v katerem se nahaja
+     - ceno nepremičnine
+     - leto izgradnje
+     - nadstropje
+     - tip nepremičnine
+     - velikost
 
 ## Analiza:
 
