@@ -1,14 +1,8 @@
-import csv
+import re
 import os
 import requests
 import sys
-
-
-def pripravi_imenik(ime_datoteke):
-    '''Če še ne obstaja, pripravi prazen imenik za dano datoteko.'''
-    imenik = os.path.dirname(ime_datoteke)
-    if imenik:
-        os.makedirs(imenik, exist_ok=True)
+import csv
 
 
 def shrani(url, ime_datoteke, vsili_prenos=False):
@@ -19,14 +13,15 @@ def shrani(url, ime_datoteke, vsili_prenos=False):
         if os.path.isfile(ime_datoteke) and not vsili_prenos:
             print('shranjeno že od prej!')
             return
-        r = requests.get(url, headers={'Accept-Language': 'en'})
+        r = requests.get(url)
     except requests.exceptions.ConnectionError:
         print('stran ne obstaja!')
-    else:
-        pripravi_imenik(ime_datoteke)
-        with open(ime_datoteke, 'w') as datoteka:
-            datoteka.write(r.text)
-            print('shranjeno!')
+    imenik = os.path.dirname(ime_datoteke)
+    if imenik:
+        os.makedirs(imenik, exist_ok=True)
+    with open(ime_datoteke, 'w') as datoteka:
+        datoteka.write(r.text)
+        print('shranjeno!')
 
 
 def vsebina_datoteke(ime_datoteke):
@@ -42,10 +37,12 @@ def datoteke(imenik):
 
 
 def zapisi_tabelo(slovarji, imena_polj, ime_datoteke):
-    '''Iz seznama slovarjev ustvari CSV datoteko z glavo.'''
-    pripravi_imenik(ime_datoteke)
-    with open(ime_datoteke, 'w') as csv_dat:
+    imenik = os.path.dirname(ime_datoteke)
+    if imenik:
+        os.makedirs(imenik, exist_ok=True)
+    with open(ime_datoteke, 'w',encoding='utf-8') as csv_dat:
         writer = csv.DictWriter(csv_dat, fieldnames=imena_polj)
         writer.writeheader()
         for slovar in slovarji:
             writer.writerow(slovar)
+
