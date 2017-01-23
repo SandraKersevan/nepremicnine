@@ -12,5 +12,3 @@ id, ime nepremičnine, predel v katerem se nahaja, ceno nepremičnine, leto izgr
 ## Analiza:
 
 Analizirala bom predvsem prodajo po predelih Ljubljane.
-
-### Opomba: Pri pobiranju html strani lahko pride do kakšnih problemov zaradi encodinga.
